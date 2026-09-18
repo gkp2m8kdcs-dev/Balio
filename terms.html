@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Balio Terms of Use — the rules and conditions for using the Balio personal wealth tracker app.">
+    <title>Terms of Use — Balio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0b0d10;
+            --surface: #14181d;
+            --card: #1a1f26;
+            --border: #262c34;
+            --gold: #d4af37;
+            --gold-soft: #e6c66b;
+            --text: #e9ecef;
+            --text-muted: #8b95a1;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            color: var(--gold);
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        .container {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 13, 16, 0.85);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 20px;
+            letter-spacing: 0.5px;
+            color: var(--text);
+        }
+
+        .brand-mark {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--gold) 0%, #b8941f 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0b0d10;
+            font-weight: 800;
+            font-size: 17px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+            opacity: 1;
+        }
+
+        /* Header */
+        .page-header {
+            padding: 80px 0 40px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .eyebrow {
+            display: inline-block;
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        .page-header h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 14px;
+            background: linear-gradient(180deg, #ffffff 0%, #b0b8c0 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-header .updated {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* Content */
+        main {
+            padding: 60px 0 80px;
+        }
+
+        .toc {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px 28px;
+            margin-bottom: 40px;
+        }
+
+        .toc h3 {
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .toc ol {
+            margin-left: 22px;
+            columns: 2;
+            column-gap: 32px;
+        }
+
+        .toc li {
+            color: var(--text-muted);
+            font-size: 14px;
+            padding: 4px 0;
+            break-inside: avoid;
+        }
+
+        .toc a {
+            color: var(--text);
+        }
+
+        .toc a:hover {
+            color: var(--gold);
+            opacity: 1;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.4px;
+            margin: 44px 0 16px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            scroll-margin-top: 100px;
+        }
+
+        h3 {
+            font-size: 17px;
+            font-weight: 600;
+            margin: 22px 0 10px;
+            color: var(--gold);
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 14px;
+            font-size: 15px;
+        }
+
+        p strong {
+            color: var(--text);
+        }
+
+        ul {
+            margin: 12px 0 20px 22px;
+        }
+
+        li {
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        /* Highlight */
+        .highlight {
+            background: rgba(212, 175, 55, 0.06);
+            border-left: 3px solid var(--gold);
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+            color: var(--text);
+            font-size: 14px;
+        }
+
+        /* Contact Box */
+        .contact-box {
+            margin-top: 56px;
+            padding: 28px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .contact-box h3 {
+            color: var(--text);
+            margin-bottom: 6px;
+            font-size: 18px;
+        }
+
+        .contact-box p {
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .contact-box a.btn {
+            display: inline-block;
+            background: var(--gold);
+            color: #0b0d10;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 32px 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        footer a {
+            color: var(--text-muted);
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            color: var(--gold);
+            opacity: 1;
+        }
+
+        @media (max-width: 720px) {
+            .nav-links {
+                gap: 14px;
+            }
+
+            .page-header {
+                padding: 56px 0 32px;
+            }
+
+            main {
+                padding: 40px 0 60px;
+            }
+
+            .toc ol {
+                columns: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="nav-inner">
+                <a href="index.html" class="brand">
+                    <span class="brand-mark">B</span>
+                    <span>Balio</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <span class="eyebrow">Legal</span>
+            <h1>Terms of Use</h1>
+            <p class="updated">Last updated: September 18, 2026</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="toc">
+                <h3>Contents</h3>
+                <ol>
+                    <li><a href="#acceptance">Acceptance of Terms</a></li>
+                    <li><a href="#eligibility">Eligibility</a></li>
+                    <li><a href="#license">License to Use Balio</a></li>
+                    <li><a href="#account">Accounts &amp; Local Data</a></li>
+                    <li><a href="#user-responsibilities">Your Responsibilities</a></li>
+                    <li><a href="#permissions">Permissions</a></li>
+                    <li><a href="#intellectual-property">Intellectual Property</a></li>
+                    <li><a href="#user-content">Your Content</a></li>
+                    <li><a href="#third-party">Third-Party Services</a></li>
+                    <li><a href="#disclaimer">Financial Disclaimer</a></li>
+                    <li><a href="#no-warranty">No Warranty</a></li>
+                    <li><a href="#limitation">Limitation of Liability</a></li>
+                    <li><a href="#indemnification">Indemnification</a></li>
+                    <li><a href="#termination">Termination</a></li>
+                    <li><a href="#changes">Changes to Terms</a></li>
+                    <li><a href="#governing-law">Governing Law</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ol>
+            </div>
+
+            <h2 id="acceptance">1. Acceptance of Terms</h2>
+            <p>By downloading, installing, or using Balio ("the App"), you agree to be bound by these Terms of Use ("Terms"). If you do not agree, please do not install or use the App.</p>
+
+            <h2 id="eligibility">2. Eligibility</h2>
+            <p>Balio is intended for users who are at least 13 years of age (or older, depending on the laws of your jurisdiction). By using the App, you represent that you meet this minimum age requirement and that you are legally capable of entering into a binding agreement.</p>
+
+            <h2 id="license">3. License to Use Balio</h2>
+            <p>Subject to your compliance with these Terms, you are granted a personal, non-exclusive, non-transferable, revocable license to install and use Balio on devices you own or control, solely for your personal, non-commercial wealth-tracking purposes.</p>
+            <p>You may not:</p>
+            <ul>
+                <li>Modify, reverse engineer, decompile, or disassemble the App, except to the extent expressly permitted by applicable law.</li>
+                <li>Rent, lease, sublicense, distribute, or otherwise transfer the App to any third party.</li>
+                <li>Use the App to build a competing product or service.</li>
+                <li>Remove or alter any proprietary notices or labels on the App.</li>
+            </ul>
+
+            <h2 id="account">4. Accounts &amp; Local Data</h2>
+            <p>Balio does not require an account. All records you create — including transactions, holdings, receipts, budgets, and goals — are stored locally on your device. You are solely responsible for maintaining the security of your device and for backing up any data you wish to preserve.</p>
+
+            <div class="highlight">
+                Because your data lives only on your device, uninstalling the App, resetting your device, or failing to back up may result in permanent loss of data. Balio is not responsible for data lost due to device failure, loss, theft, or user error.
+            </div>
+
+            <h2 id="user-responsibilities">5. Your Responsibilities</h2>
+            <p>When using Balio, you agree that you will:</p>
+            <ul>
+                <li>Provide accurate information when recording transactions, holdings, and other records.</li>
+                <li>Use the App only for lawful purposes and in compliance with all applicable laws and regulations.</li>
+                <li>Not attempt to interfere with, disrupt, or compromise the integrity or security of the App.</li>
+                <li>Not use the App to transmit or store any content that is unlawful, infringing, or malicious.</li>
+            </ul>
+
+            <h2 id="permissions">6. Permissions</h2>
+            <p>Balio may request access to your device's camera and photo library to provide receipt capture and report-export features. These permissions are requested only when needed and can be revoked at any time through your device settings. Denial of any permission will not prevent you from using other features of the App.</p>
+
+            <h2 id="intellectual-property">7. Intellectual Property</h2>
+            <p>Balio, including its design, code, graphics, logos, trademarks, and content (other than your own content), is the property of Balio or its licensors and is protected by copyright, trademark, and other intellectual property laws. Nothing in these Terms grants you any right or license to use our trademarks or branding without our prior written consent.</p>
+
+            <h2 id="user-content">8. Your Content</h2>
+            <p>You retain all rights to the data, images, and other content you create or import into Balio ("User Content"). Because User Content is stored only on your device and is never transmitted to our servers, we do not access, copy, modify, or use your User Content. You are solely responsible for your User Content and for ensuring that you have the right to store it on your device.</p>
+
+            <h2 id="third-party">9. Third-Party Services</h2>
+            <p>Balio does not integrate with any third-party services, networks, or APIs that process your data. Standard iOS services (such as Files, Photos, and iCloud Backup) may store Balio data if you have those features enabled on your device — those services are governed by Apple's terms and your device settings, not by these Terms.</p>
+
+            <h2 id="disclaimer">10. Financial Disclaimer</h2>
+            <div class="highlight">
+                Balio is a personal journaling and tracking tool. It does not provide financial, investment, tax, accounting, or legal advice. Any calculations, totals, charts, or reports generated by the App are based solely on the data you enter and are provided for informational purposes only. Balio is not a broker-dealer, investment adviser, or financial planner.
+            </div>
+            <p>You are solely responsible for verifying the accuracy of any data you enter into the App and for any financial decisions you make based on that data. Always consult a qualified, licensed financial professional for advice tailored to your circumstances.</p>
+
+            <h2 id="no-warranty">11. No Warranty</h2>
+            <p>THE APP IS PROVIDED "AS IS" AND "AS AVAILABLE," WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, AND ACCURACY OF RESULTS. WITHOUT LIMITING THE FOREGOING, BALIO DOES NOT WARRANT THAT THE APP WILL BE UNINTERRUPTED, ERROR-FREE, SECURE, OR FREE OF HARMFUL COMPONENTS, OR THAT DEFECTS WILL BE CORRECTED.</p>
+
+            <h2 id="limitation">12. Limitation of Liability</h2>
+            <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL BALIO, ITS DEVELOPERS, AFFILIATES, OR LICENSORS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES (INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF PROFITS, GOODWILL, USE, DATA, OR OTHER INTANGIBLE LOSSES) ARISING OUT OF OR IN CONNECTION WITH YOUR USE OF, OR INABILITY TO USE, THE APP, EVEN IF BALIO HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+            <p>In jurisdictions that do not allow the exclusion or limitation of certain damages, our liability will be limited to the maximum extent permitted by law.</p>
+
+            <h2 id="indemnification">13. Indemnification</h2>
+            <p>You agree to indemnify and hold harmless Balio and its developers from and against any claims, liabilities, damages, losses, and expenses (including reasonable legal fees) arising out of or in any way connected with your use of the App, your User Content, or your violation of these Terms.</p>
+
+            <h2 id="termination">14. Termination</h2>
+            <p>These Terms remain in effect until terminated. You may terminate them at any time by uninstalling the App and discontinuing use. We may suspend or terminate your access to the App at any time, with or without notice, if we reasonably believe you have violated these Terms.</p>
+            <p>Upon termination, all licenses granted to you under these Terms will end. Sections that by their nature should survive termination — including but not limited to Financial Disclaimer, No Warranty, Limitation of Liability, Indemnification, and Governing Law — will survive.</p>
+
+            <h2 id="changes">15. Changes to These Terms</h2>
+            <p>We may update these Terms from time to time. When we do, we will revise the "Last updated" date at the top of this page. Because Balio does not collect contact information, we will not be able to notify you directly of changes. Your continued use of the App after any change constitutes acceptance of the updated Terms.</p>
+
+            <h2 id="governing-law">16. Governing Law</h2>
+            <p>These Terms are governed by and construed in accordance with applicable international commercial practices and the laws applicable to software distributed through the Apple App Store, without regard to conflict-of-law principles. Any disputes arising out of or relating to these Terms or your use of the App will be resolved through good-faith negotiation, and where negotiation fails, in accordance with the dispute-resolution rules of the jurisdiction in which you reside, to the extent those rules apply to consumer use of mobile software.</p>
+
+            <h2 id="contact">17. Contact</h2>
+            <p>If you have any questions about these Terms, please contact us:</p>
+
+            <div class="contact-box">
+                <h3>Questions about these Terms</h3>
+                <p>Send us a note and we'll get back to you.</p>
+                <a class="btn" href="mailto:karlawsokunevajob68@gmail.com?subject=Balio%20Terms%20Inquiry">karlawsokunevajob68@gmail.com</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                &copy; 2026 Balio. Your data, your device, your control.
+            </p>
+            <p style="margin-top: 10px;">
+                <a href="index.html">Home</a>·
+                <a href="privacy.html">Privacy Policy</a>·
+                <a href="support.html">Support</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

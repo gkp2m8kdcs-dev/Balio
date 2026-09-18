@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Balio is a premium, on-device personal wealth tracker and investment journal for serious individual investors. No accounts, no cloud, total privacy.">
+    <meta name="keywords" content="Balio, wealth tracker, investment journal, portfolio tracker, budget, finance, privacy, on-device">
+    <meta name="author" content="Balio">
+    <meta property="og:title" content="Balio — Personal Wealth Tracker & Investment Journal">
+    <meta property="og:description" content="Your money, your records, your device. A private analyst's notebook for tracking every transaction, holding, receipt, and goal.">
+    <meta property="og:type" content="website">
+    <title>Balio — Personal Wealth Tracker & Investment Journal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0b0d10;
+            --surface: #14181d;
+            --card: #1a1f26;
+            --border: #262c34;
+            --gold: #d4af37;
+            --gold-soft: #e6c66b;
+            --text: #e9ecef;
+            --text-muted: #8b95a1;
+            --accent: #d4af37;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            color: var(--gold);
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 13, 16, 0.85);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 20px;
+            letter-spacing: 0.5px;
+            color: var(--text);
+        }
+
+        .brand-mark {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--gold) 0%, #b8941f 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0b0d10;
+            font-weight: 800;
+            font-size: 17px;
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.25);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+            opacity: 1;
+        }
+
+        .nav-cta {
+            background: var(--gold);
+            color: #0b0d10 !important;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-weight: 600;
+            opacity: 1 !important;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 100px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            border-radius: 999px;
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 64px);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            margin-bottom: 20px;
+            background: linear-gradient(180deg, #ffffff 0%, #b0b8c0 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero h1 .accent {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-soft) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 19px;
+            color: var(--text-muted);
+            max-width: 680px;
+            margin: 0 auto 36px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: #0b0d10;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3);
+            opacity: 1;
+        }
+
+        .btn-secondary {
+            background: var(--card);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--surface);
+            opacity: 1;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-head {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .section-head .eyebrow {
+            display: inline-block;
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .section-head h2 {
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 700;
+            letter-spacing: -0.8px;
+            margin-bottom: 16px;
+        }
+
+        .section-head p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 17px;
+        }
+
+        /* Features Grid */
+        .features {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.25s ease;
+        }
+
+        .feature-card:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.65;
+        }
+
+        /* Privacy Highlight */
+        .privacy {
+            background: var(--bg);
+        }
+
+        .privacy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .privacy-item {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .privacy-item .num {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--gold);
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .privacy-item .label {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* Modules */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .module {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 36px;
+        }
+
+        .module-tag {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        .module h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .module p {
+            color: var(--text-muted);
+            font-size: 15px;
+            margin-bottom: 16px;
+        }
+
+        .module ul {
+            list-style: none;
+        }
+
+        .module li {
+            color: var(--text-muted);
+            font-size: 14px;
+            padding: 6px 0 6px 22px;
+            position: relative;
+        }
+
+        .module li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        /* CTA */
+        .cta {
+            text-align: center;
+            background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+            border-top: 1px solid var(--border);
+        }
+
+        .cta h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 700;
+            letter-spacing: -0.8px;
+            margin-bottom: 16px;
+        }
+
+        .cta p {
+            color: var(--text-muted);
+            max-width: 540px;
+            margin: 0 auto 32px;
+            font-size: 17px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 48px 0 32px;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-top: 12px;
+            max-width: 320px;
+        }
+
+        .footer-col h4 {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+            color: var(--text);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .footer-col a:hover {
+            color: var(--gold);
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        /* Mobile */
+        @media (max-width: 720px) {
+            .nav-links {
+                gap: 14px;
+            }
+
+            .nav-links a:not(.nav-cta) {
+                display: none;
+            }
+
+            section {
+                padding: 56px 0;
+            }
+
+            .hero {
+                padding: 60px 0;
+            }
+
+            .feature-card,
+            .module {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="nav-inner">
+                <a href="#" class="brand">
+                    <span class="brand-mark">B</span>
+                    <span>Balio</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#privacy">Privacy</a></li>
+                    <li><a href="#modules">Modules</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="#download" class="nav-cta">Get Balio</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <div class="hero-badge">
+                <span>●</span>
+                <span>On-device. Private by design.</span>
+            </div>
+            <h1>Your wealth.<br><span class="accent">Your records.</span><br>Your device.</h1>
+            <p>Balio is a premium wealth management journal built for serious individual investors who want full visibility into their financial life — without surrendering privacy to the cloud.</p>
+            <div class="hero-cta">
+                <a href="#download" class="btn btn-primary">Download on the App Store</a>
+                <a href="support.html" class="btn btn-secondary">Get Support</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow">Everything you need</span>
+                <h2>A private analyst's notebook</h2>
+                <p>Refined dark surfaces, gold accents, and interactive charts that respond to your touch.</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">◐</div>
+                    <h3>Net Worth Dashboard</h3>
+                    <p>A hero card surfaces your total net worth with cash and invested breakdowns. Quick stat chips surface income, expense, savings rate, and active goal count at a glance.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">▤</div>
+                    <h3>Interactive Cash Flow</h3>
+                    <p>Switch between week, month, quarter, and year views with smooth bar transitions. Watch your money move.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">◉</div>
+                    <h3>Allocation Donut</h3>
+                    <p>A custom-drawn allocation donut lets you tap slices to highlight individual asset classes across your portfolio.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">▰</div>
+                    <h3>Category Breakdown</h3>
+                    <p>Ranks your top spending areas with animated progress bars and helps you spot where the money goes.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">◫</div>
+                    <h3>Smart Budgets</h3>
+                    <p>Monthly budgets appear as glass cards with warning states when you cross 80% and full alerts at 100%.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">◈</div>
+                    <h3>Goal Tracking</h3>
+                    <p>Support milestone tracking, savings-rate calculations, and contribution logging for every goal you set.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="privacy" class="privacy">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow">Privacy first</span>
+                <h2>Built to keep your data on your device</h2>
+                <p>No accounts. No logins. No telemetry. No third-party tracking. Your data is yours alone.</p>
+            </div>
+            <div class="privacy-grid">
+                <div class="privacy-item">
+                    <div class="num">0</div>
+                    <div class="label">Accounts required</div>
+                </div>
+                <div class="privacy-item">
+                    <div class="num">0</div>
+                    <div class="label">Cloud syncs</div>
+                </div>
+                <div class="privacy-item">
+                    <div class="num">0</div>
+                    <div class="label">Trackers embedded</div>
+                </div>
+                <div class="privacy-item">
+                    <div class="num">100%</div>
+                    <div class="label">Stored on device</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="modules" class="features">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow">Modules</span>
+                <h2>Every module, designed with intent</h2>
+                <p>Track, analyze, and act — without compromise.</p>
+            </div>
+            <div class="modules-grid">
+                <div class="module">
+                    <span class="module-tag">Portfolio</span>
+                    <h3>Holdings across every asset class</h3>
+                    <p>Stocks, ETFs, mutual funds, bonds, real estate, retirement accounts, cash equivalents, commodities, and digital assets.</p>
+                    <ul>
+                        <li>Quantity, average cost, current price</li>
+                        <li>Account, purchase date, notes</li>
+                        <li>Market value, unrealized gain/loss, return %</li>
+                    </ul>
+                </div>
+                <div class="module">
+                    <span class="module-tag">Receipts</span>
+                    <h3>Document every transaction</h3>
+                    <p>Attach image evidence to any record using the camera and photo library, with pinch-to-zoom fullscreen inspection.</p>
+                    <ul>
+                        <li>Camera capture</li>
+                        <li>Photo library attachments</li>
+                        <li>Pinch-to-zoom inspection</li>
+                    </ul>
+                </div>
+                <div class="module">
+                    <span class="module-tag">Reports</span>
+                    <h3>Native Swift Charts insights</h3>
+                    <p>Four views — Overview, Income, Expense, and Net Worth — each with multiple native visualizations.</p>
+                    <ul>
+                        <li>Overview, Income, Expense, Net Worth</li>
+                        <li>Multiple chart types per view</li>
+                        <li>Export CSV files and text summaries</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="download" class="cta">
+        <div class="container">
+            <h2>Designed for clarity, not compromise.</h2>
+            <p>Balio is uncompromisingly local: your money, your records, your device. Available now on the App Store.</p>
+            <div class="hero-cta">
+                <a href="#" class="btn btn-primary">Download on the App Store</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <a href="#" class="brand">
+                        <span class="brand-mark">B</span>
+                        <span>Balio</span>
+                    </a>
+                    <p>Your private wealth journal. Built for individuals who value clarity and control.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#privacy">Privacy</a></li>
+                        <li><a href="#modules">Modules</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="support.html">Support</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Use</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:karlawsokunevajob68@gmail.com">karlawsokunevajob68@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Balio. All rights reserved. Made with care for your privacy.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

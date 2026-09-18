@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Balio Support — get help with your personal wealth tracker and investment journal.">
+    <title>Support — Balio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0b0d10;
+            --surface: #14181d;
+            --card: #1a1f26;
+            --border: #262c34;
+            --gold: #d4af37;
+            --gold-soft: #e6c66b;
+            --text: #e9ecef;
+            --text-muted: #8b95a1;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            color: var(--gold);
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 13, 16, 0.85);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 20px;
+            letter-spacing: 0.5px;
+            color: var(--text);
+        }
+
+        .brand-mark {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--gold) 0%, #b8941f 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0b0d10;
+            font-weight: 800;
+            font-size: 17px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+            opacity: 1;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 80px 0 40px;
+            text-align: center;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        .page-header h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 14px;
+            background: linear-gradient(180deg, #ffffff 0%, #b0b8c0 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 17px;
+        }
+
+        /* Contact Card */
+        .contact-hero {
+            margin: 32px 0 64px;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.10) 0%, rgba(212, 175, 55, 0.03) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .contact-card .icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--gold) 0%, #b8941f 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+            color: #0b0d10;
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.25);
+        }
+
+        .contact-card h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .contact-card .lead {
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            font-size: 15px;
+        }
+
+        .email-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--gold);
+            color: #0b0d10;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.2s ease;
+        }
+
+        .email-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3);
+            opacity: 1;
+        }
+
+        /* FAQ */
+        .faq-section {
+            padding: 0 0 80px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.4px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .faq {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .faq details {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: border-color 0.2s ease;
+        }
+
+        .faq details[open] {
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .faq summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 20px 24px;
+            font-weight: 600;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            color: var(--text);
+            user-select: none;
+        }
+
+        .faq summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq summary::after {
+            content: "+";
+            font-size: 22px;
+            color: var(--gold);
+            font-weight: 300;
+            transition: transform 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .faq details[open] summary::after {
+            content: "−";
+        }
+
+        .faq .answer {
+            padding: 0 24px 22px;
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .faq .answer p {
+            margin-bottom: 10px;
+        }
+
+        .faq .answer p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 32px 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        footer a {
+            color: var(--text-muted);
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            color: var(--gold);
+            opacity: 1;
+        }
+
+        @media (max-width: 720px) {
+            .nav-links {
+                gap: 14px;
+            }
+
+            .page-header {
+                padding: 56px 0 32px;
+            }
+
+            .contact-card {
+                padding: 28px 20px;
+            }
+
+            .faq summary {
+                padding: 16px 18px;
+                font-size: 14px;
+            }
+
+            .faq .answer {
+                padding: 0 18px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="nav-inner">
+                <a href="index.html" class="brand">
+                    <span class="brand-mark">B</span>
+                    <span>Balio</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <span class="eyebrow">Support</span>
+            <h1>We're here to help.</h1>
+            <p>Balio is designed to work quietly in the background. If you ever need a hand, the fastest path is to email us — a real person will reply.</p>
+        </div>
+    </header>
+
+    <section class="contact-hero">
+        <div class="container">
+            <div class="contact-card">
+                <div class="icon">✉</div>
+                <h2>Email Support</h2>
+                <p class="lead">Send us a message and we'll get back to you as quickly as possible. We read every email.</p>
+                <a class="email-button" href="mailto:karlawsokunevajob68@gmail.com?subject=Balio%20Support">
+                    karlawsokunevajob68@gmail.com
+                </a>
+                <p style="margin-top: 18px; font-size: 13px; color: var(--text-muted);">
+                    Typical reply time: within 1–3 business days
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq">
+                <details>
+                    <summary>Where is my data stored?</summary>
+                    <div class="answer">
+                        <p>All your data is stored exclusively on your iPhone, inside Balio's local sandbox. Nothing is uploaded to a server, and we have no access to your records. Deleting the app permanently removes all stored data.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>Do I need to create an account?</summary>
+                    <div class="answer">
+                        <p>No. Balio is account-free by design. Open the app and start tracking — there's nothing to sign up for.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>How do I back up my data?</summary>
+                    <div class="answer">
+                        <p>You can export your full data set to CSV or a text summary at any time from Settings → Export. Save the file to iCloud Drive, Files, or another backup location of your choice. Standard iOS device backups (iTunes / iCloud backup) will also include Balio's local data if those backups are enabled on your device.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>How do I transfer my data to a new iPhone?</summary>
+                    <div class="answer">
+                        <p>When restoring from an iCloud or iTunes backup on the same device, Balio's local data will come along automatically. If you move to a new device without restoring a backup, use Settings → Export to save a CSV before the transfer and re-import on the new device.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>Is Balio a financial advisor?</summary>
+                    <div class="answer">
+                        <p>No. Balio is a personal journaling and tracking tool. It does not provide financial, investment, tax, or legal advice. Any numbers and charts produced by the app are based solely on the data you enter. Always consult a qualified professional for advice tailored to your situation.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>What asset classes can I track?</summary>
+                    <div class="answer">
+                        <p>Balio supports stocks, ETFs, mutual funds, bonds, real estate, retirement accounts, cash equivalents, commodities, and digital assets. Each holding records quantity, average cost, current price, account, purchase date, and notes — with automatic market value, unrealized gain/loss, and return percentage.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>How do I attach a receipt to a transaction?</summary>
+                    <div class="answer">
+                        <p>Open the transaction and tap the receipt / attachment control. You can capture a new image using the camera or pick an existing one from your photo library. Receipts are stored locally on your device, with pinch-to-zoom fullscreen inspection.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>How do I delete all my data?</summary>
+                    <div class="answer">
+                        <p>Go to Settings → Data Management → Delete All Data and confirm. Alternatively, deleting the app from your device permanently and irreversibly removes every record, receipt, budget, and goal.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>Does Balio support iPad or Mac?</summary>
+                    <div class="answer">
+                        <p>Balio is built for iPhone. iPad support depends on device compatibility. For the latest list of supported devices, see the App Store listing.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>I found a bug — how do I report it?</summary>
+                    <div class="answer">
+                        <p>We'd love to hear about it. Send a description of what happened, what you expected, and your iOS version to <a href="mailto:karlawsokunevajob68@gmail.com?subject=Balio%20Bug%20Report">karlawsokunevajob68@gmail.com</a> with the subject line "Bug Report". Screenshots are always appreciated.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>
+                &copy; 2026 Balio. Your data, your device, your control.
+            </p>
+            <p style="margin-top: 10px;">
+                <a href="index.html">Home</a>·
+                <a href="privacy.html">Privacy Policy</a>·
+                <a href="terms.html">Terms of Use</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
